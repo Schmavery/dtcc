@@ -1,4 +1,7 @@
 /** @jsx React.DOM */
+var dict = {
+  "cancer":"It's always hard to say..."
+}
 
 var Main = React.createClass({
   getInitialState: function() {
@@ -7,7 +10,7 @@ var Main = React.createClass({
         position: "absolute",
         top: window.innerHeight / 2 - 150,
         left: window.innerWidth / 2 - 167,
-        width: 334,
+        width: 350,
         height: 300,
         textAlign: "center"
       },
@@ -32,18 +35,20 @@ var Main = React.createClass({
   render: function() {
     var answer;
     if(this.state.showAnswer) {
+	  var input = this.refs.textinput.getDOMNode().value;
       answer = (
         <div>
-          You asked if &#39;{this.refs.textinput.getDOMNode().value}&#39; causes cancer.
+          You asked if {input} causes cancer.
           <br/><br/>
-          YES.
+		  { dict[input.toLowerCase()] ? dict[input.toLowerCase()] : "YES." }
         </div>
       );
+	  window.history.replaceState("", "Mhm", "?q="+encodeURIComponent(input));
     }
     return (
       <div id="main" style={this.state.style}>
         <h1>
-        Does this causes cancer?
+        Does This Cause Cancer?
         </h1>
         <form onSubmit={this.submit}>
         <input type="text" ref="textinput" onKeyUp={this.onTextChange} style={{width: "100%"}}/>
