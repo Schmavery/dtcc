@@ -5,7 +5,7 @@ var dict = {
   "kittens":"It's quite likely.",
   "nuclear waste":"Hard to tell.",
   "chemicals":"According to Ben."
-}
+};
 
 var Main = React.createClass({
   getInitialState: function() {
@@ -39,15 +39,22 @@ var Main = React.createClass({
   render: function() {
     var answer;
     if(this.state.showAnswer) {
-	  var input = this.refs.textinput.getDOMNode().value;
-      answer = (
-        <div>
-          You asked if {input} causes cancer.
-          <br/><br/>
-		  { dict[input.toLowerCase()] ? dict[input.toLowerCase()] : "YES." }
-        </div>
-      );
-	  window.history.replaceState("", "Mhm", "?q="+encodeURIComponent(input));
+  	  var input = this.refs.textinput.getDOMNode().value;
+      if(input === "does this cause cancer") {
+        answer = (
+          <iframe id="frame" src="http://cs.mcgill.ca/~amorin23/git/dtcc/?q=Does%20This%20Cause%20Cancer" width={334 * 1.25} height={300 * 1.25}>
+          </iframe>
+        );
+      } else {
+        answer = (
+          <div>
+            You asked if {input} causes cancer.
+            <br/><br/>
+  		  { dict[input.toLowerCase()] ? dict[input.toLowerCase()] : "YES." }
+          </div>
+        );
+      }
+    	 window.history.replaceState("", "Mhm", "?q="+encodeURIComponent(input));
     }
     return (
       <div id="main" style={this.state.style}>
