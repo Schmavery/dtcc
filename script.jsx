@@ -1,6 +1,10 @@
 /** @jsx React.DOM */
 var dict = {
-  "cancer":"It's always hard to say..."
+  "cancer":"It's always hard to say...",
+  "smoking":"Some studies point towards it being the case...",
+  "kittens":"It's quite likely.",
+  "nuclear waste":"Hard to tell.",
+  "chemicals":"According to Ben."
 }
 
 var Main = React.createClass({
