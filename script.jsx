@@ -14,6 +14,21 @@ var Main = React.createClass({
       showAnswer: false
     };
   },
+  componentDidMount: function () {
+    window.onresize = this.resize;
+  },
+  resize: function() {
+    this.setState({
+      style: {
+        position: "absolute",
+        top: window.innerHeight / 2 - 150,
+        left: window.innerWidth / 2 - 167,
+        width: 334,
+        height: 300,
+        textAlign: "center"
+      }
+    });
+  },
   render: function() {
     var answer;
     if(this.state.showAnswer) {
