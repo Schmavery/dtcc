@@ -40,7 +40,7 @@ var Main = React.createClass({
     var answer;
     if(this.state.showAnswer) {
   	  var input = this.refs.textinput.getDOMNode().value;
-      if(input === "does this cause cancer") {
+      if(input.toLowerCase() === "does this cause cancer") {
         answer = (
           <iframe id="frame" src="http://cs.mcgill.ca/~amorin23/git/dtcc/?q=Does%20This%20Cause%20Cancer" width={334 * 1.25} height={300 * 1.25}>
           </iframe>
