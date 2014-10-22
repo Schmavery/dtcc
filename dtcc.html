@@ -1,0 +1,29 @@
+
+<html>
+<head>
+<title>Does This Cause Cancer?</title>
+<script>
+function checkCancer(e){
+    var input = document.getElementById("in").value;
+    var output = "You asked if "+input+" causes cancer.<br><br>";
+    if (input.toLowerCase() === "cancer"){
+  output += "It's always hard to say...";
+  } else {
+  output += "YES.";
+  }
+    document.getElementById("response").innerHTML = output;
+    return false;
+  }
+</script>
+</head>
+<body>
+  <center>
+  <h1>Does This Cause Cancer?</h1>
+  <form onsubmit="return false">
+  <input type="text" id="in"></input>
+  <button onclick=checkCancer()>Search</button>
+  </form>
+  <div id="response"></div>
+</center>
+</body>
+</html>
