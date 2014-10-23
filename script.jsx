@@ -56,7 +56,7 @@ var Main = React.createClass({
         </h1>
         <form onSubmit={this.submit}>
         <input type="text" ref="textinput" onKeyUp={this.onTextChange} style={{width: "100%"}}/>
-        <button onClick={this.submit}>Search</button>
+        <button onClick={this.submit}>Search</button>&nbsp;&nbsp;
         <button onClick={this.submit}>I&#39;m feeling lucky</button>
         </form>
         <br />
