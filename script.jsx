@@ -23,6 +23,7 @@ var Main = React.createClass({
   },
   componentDidMount: function () {
     window.onresize = this.resize;
+    window.history.replaceState("", "Mhm", "");
   },
   resize: function() {
     this.setState({
