@@ -23,7 +23,7 @@ var Main = React.createClass({
   },
   componentDidMount: function () {
     window.onresize = this.resize;
-    window.location.href = window.location.href.match(".+/");
+    window.history.replaceState("", "", window.location.href.match(".+/"));
   },
   resize: function() {
     this.setState({
