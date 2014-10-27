@@ -39,7 +39,7 @@ var Main = React.createClass({
   },
   render: function() {
     var answer;
-    if(this.state.showAnswer) {
+    if(this.state.showAnswer && this.refs.textinput.getDOMNode().value.length > 0) {
   	  var input = this.refs.textinput.getDOMNode().value;
       if(input.toLowerCase().match("does this cause cancer") !== null) {
         answer = (
@@ -49,7 +49,7 @@ var Main = React.createClass({
       } else {
         answer = (
           <div>
-            You asked if {input} causes cancer.
+            You asked if {input} cause{input.toLowerCase().slize(-1) === 's' ? "" : "s"} cancer.
             <br/><br/>
   		  { dict[input.toLowerCase()] ? dict[input.toLowerCase()] : "YES." }
           </div>
