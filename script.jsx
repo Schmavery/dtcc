@@ -49,7 +49,7 @@ var Main = React.createClass({
       } else {
         answer = (
           <div>
-            You asked if {input} cause{input.toLowerCase().slize(-1) === 's' ? "" : "s"} cancer.
+            You asked if {input} cause{input.toLowerCase().slice(-1) === 's' ? "" : "s"} cancer.
             <br/><br/>
   		  { dict[input.toLowerCase()] ? dict[input.toLowerCase()] : "YES." }
           </div>
